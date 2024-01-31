@@ -24,6 +24,7 @@ public class CartItemDAO implements Dao<CartItem> {
 	public CartItem modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
 		Item item = itemDAO.readItem(resultSet.getLong("fk_item_id"));
+		item.setQuantity(1L);
 		return new CartItem(id, item);
 	}
 
