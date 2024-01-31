@@ -62,6 +62,10 @@ public class CartController implements CrudController<CartItem> {
 		} while (current == null);
 		LOGGER.info(current.toString());
 		LOGGER.info("Please enter the ID of the Item you wish to update to:");
+		List<Item> items = itemDAO.readAll();
+		for (Item item : items) {
+			LOGGER.info(item.toString());
+		}
 		id = utils.getLong();
 		current.setItem(itemDAO.readItem(id));
 		return cartItemDAO.update(current);
