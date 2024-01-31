@@ -44,7 +44,9 @@ public class CartController implements CrudController<CartItem> {
 		}
 		LOGGER.info("Please enter the Item ID you wish to add to the cart");
 		long itemID = utils.getLong();
-		return cartItemDAO.create(new CartItem(itemDAO.readItem(itemID)));
+		Item item = itemDAO.readItem(itemID);
+		item.setQuantity(1L);
+		return cartItemDAO.create(new CartItem(item));
 	}
 
 	@Override
