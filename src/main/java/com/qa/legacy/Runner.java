@@ -8,7 +8,8 @@ public class Runner {
 	public static final Logger LOGGER = LogManager.getLogger();
 	
 	public static void main(String[] args) {
-		// Stub
+		LegacyMenu menu = new LegacyMenu();
+		menu.menuStart();
 		LOGGER.info("SO LONG!");
 	}
 }
