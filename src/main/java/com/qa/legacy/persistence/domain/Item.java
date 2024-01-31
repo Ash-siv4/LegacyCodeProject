@@ -30,6 +30,14 @@ public class Item {
 		this.price = price;
 		this.quantity = 1L;
 	}
+	
+	public Item(Long id) {
+		super();
+		this.id = id;
+		this.name = null;
+		this.price = null;
+		this.quantity = 1L;
+	}
 
 	public Long getId() {
 		return id;
