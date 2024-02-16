@@ -1,5 +1,7 @@
 package com.qa.legacy.controller;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -29,10 +31,15 @@ public class CartController implements CrudController<CartItem> {
 
 	@Override
 	public List<CartItem> readAll() {
+		DecimalFormat df = new DecimalFormat("#.##");
+		df.setRoundingMode(RoundingMode.HALF_UP);
 		List<CartItem> cart = cartItemDAO.readAll();
+		Double totalCost = 0.0;
 		for (CartItem cartItem : cart) {
+			totalCost += cartItem.getItem().getPrice() * 1.0725;
 			LOGGER.info(cartItem.toString());
 		}
+		LOGGER.info("Total cost of cart inc. service charge: £" + df.format(totalCost));
 		return cart;
 	}
 
