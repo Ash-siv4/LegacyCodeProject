@@ -24,6 +24,7 @@ public class CartItemDAO implements Dao<CartItem> {
 	public CartItem modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
 		Item item = itemDAO.readItem(resultSet.getLong("fk_item_id"));
+		item.setQuantity(1L);
 		return new CartItem(id, item);
 	}
 
@@ -89,7 +90,7 @@ public class CartItemDAO implements Dao<CartItem> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate(
-					"update orders set fk_item_id =" + cartItem.getItem().getId() + " where id =" + cartItem.getId());
+					"update cart set fk_item_id =" + cartItem.getItem().getId() + " where id =" + cartItem.getId());
 			return readCartItem(cartItem.getId());
 		} catch (Exception e) {
 			LOGGER.debug(e);

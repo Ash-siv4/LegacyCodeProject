@@ -51,7 +51,9 @@ public class CartController implements CrudController<CartItem> {
 		}
 		LOGGER.info("Please enter the Item ID you wish to add to the cart");
 		long itemID = utils.getLong();
-		return cartItemDAO.create(new CartItem(itemDAO.readItem(itemID)));
+		Item item = itemDAO.readItem(itemID);
+		item.setQuantity(1L);
+		return cartItemDAO.create(new CartItem(item));
 	}
 
 	@Override
@@ -69,6 +71,10 @@ public class CartController implements CrudController<CartItem> {
 		} while (current == null);
 		LOGGER.info(current.toString());
 		LOGGER.info("Please enter the ID of the Item you wish to update to:");
+		List<Item> items = itemDAO.readAll();
+		for (Item item : items) {
+			LOGGER.info(item.toString());
+		}
 		id = utils.getLong();
 		current.setItem(itemDAO.readItem(id));
 		return cartItemDAO.update(current);
