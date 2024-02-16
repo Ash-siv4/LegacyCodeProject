@@ -1,0 +1,22 @@
+20240208 19:34:05 INFO  [main] legacy.LegacyMenu LegacyMenu.java38 - What is your username
+20240208 19:34:07 INFO  [main] legacy.LegacyMenu LegacyMenu.java40 - What is your password
+20240208 19:34:09 INFO  [main] legacy.LegacyMenu LegacyMenu.java46 - Which entity would you like to use?
+20240208 19:34:09 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
+20240208 19:34:09 INFO  [main] domain.Domain Domain.java27 - CART: Add/Remove Items from the Cart
+20240208 19:34:09 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
+20240208 19:34:11 INFO  [main] legacy.LegacyMenu LegacyMenu.java67 - What would you like to do with item:
+20240208 19:34:11 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
+20240208 19:34:11 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
+20240208 19:34:11 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
+20240208 19:34:11 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
+20240208 19:34:11 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
+20240208 19:34:13 INFO  [main] controller.ItemController ItemController.java29 - Item: id = 1, name = harmonica, price = 1200.99, quantity = 8
+20240208 19:34:13 INFO  [main] controller.ItemController ItemController.java29 - Item: id = 2, name = wheelie bin, price = 2.99, quantity = 84528
+20240208 19:34:13 INFO  [main] controller.ItemController ItemController.java29 - Item: id = 3, name = your mother, price = 0.99, quantity = 1
+20240208 19:34:13 INFO  [main] controller.ItemController ItemController.java29 - Item: id = 4, name = nike airs, price = 40.99, quantity = 74
+20240208 19:34:13 INFO  [main] legacy.LegacyMenu LegacyMenu.java67 - What would you like to do with item:
+20240208 19:34:13 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
+20240208 19:34:13 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
+20240208 19:34:13 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
+20240208 19:34:13 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
+20240208 19:34:13 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
