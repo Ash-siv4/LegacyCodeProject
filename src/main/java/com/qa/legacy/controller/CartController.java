@@ -14,14 +14,14 @@ import com.qa.legacy.persistence.domain.CartItem;
 import com.qa.legacy.persistence.domain.Item;
 
 public class CartController implements CrudController<CartItem> {
-	
+
 	public static final Logger LOGGER = LogManager.getLogger();
-	
+
 	private ItemDAO itemDAO;
 	private CartItemDAO cartItemDAO;
 	private Utils utils;
-	
 
+	// Class constructor
 	public CartController(ItemDAO itemDAO, CartItemDAO cartItemDAO, Utils utils) {
 		super();
 		this.itemDAO = itemDAO;
@@ -29,6 +29,15 @@ public class CartController implements CrudController<CartItem> {
 		this.utils = utils;
 	}
 
+	/*
+	 * The readAll() method calculates and displays the total cost of items in a
+	 * shopping cart, including a service charge. It uses a decimal formatter to
+	 * round the total cost to two decimal places. The method retrieves a list of
+	 * CartItem objects from a data access object (cartItemDAO), iterates through
+	 * each item, calculates the adjusted cost, logs information about each item,
+	 * and finally logs the total cost of the cart including the service charge. The
+	 * list of CartItem objects is then returned.
+	 */
 	@Override
 	public List<CartItem> readAll() {
 		DecimalFormat df = new DecimalFormat("#.##");
@@ -43,6 +52,15 @@ public class CartController implements CrudController<CartItem> {
 		return cart;
 	}
 
+	/*
+	 * The create() method allows the user to add an item to a shopping cart. It
+	 * retrieves a list of all items from a data access object (itemDAO), logs
+	 * information about each item, prompts the user to enter the ID of the item
+	 * they want to add to the cart, retrieves the corresponding item from the data
+	 * access object, sets its quantity to 1, and creates a new CartItem object with
+	 * this item. The CartItem is then added to the shopping cart using a data
+	 * access object (cartItemDAO), and the created CartItem is returned.
+	 */
 	@Override
 	public CartItem create() {
 		List<Item> items = itemDAO.readAll();
@@ -56,6 +74,13 @@ public class CartController implements CrudController<CartItem> {
 		return cartItemDAO.create(new CartItem(item));
 	}
 
+	/*
+	 * The update() function allows you to change an item in your shopping cart. It
+	 * first asks you to pick the item you want to update, shows you the current
+	 * items in your cart, and then asks for the ID of the item you want to switch
+	 * to. After showing all available items, it updates the selected item in your
+	 * cart and confirms the update.
+	 */
 	@Override
 	public CartItem update() {
 		Long id = null;
@@ -80,6 +105,11 @@ public class CartController implements CrudController<CartItem> {
 		return cartItemDAO.update(current);
 	}
 
+	/*
+	 * The delete() method lets you remove a specific item from your shopping cart.
+	 * It displays the current items in the cart, prompts you to enter the ID of the
+	 * item you want to delete, and then attempts to delete that item from the cart.
+	 */
 	@Override
 	public int delete() {
 		List<CartItem> cart = cartItemDAO.readAll();

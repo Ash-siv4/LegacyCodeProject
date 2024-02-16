@@ -89,8 +89,7 @@ public class ItemController implements CrudController<Item> {
 	/*
 	 * The delete() method displays a list of all items, prompts the user to enter
 	 * the ID of the item they want to delete, and attempts to delete it using a
-	 * data access object (itemDAO). The method returns a result code indicating the
-	 * success or failure of the deletion operation.
+	 * data access object (itemDAO).
 	 */
 	@Override
 	public int delete() {
