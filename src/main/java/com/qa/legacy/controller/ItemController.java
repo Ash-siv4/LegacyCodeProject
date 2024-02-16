@@ -16,12 +16,18 @@ public class ItemController implements CrudController<Item> {
 	private ItemDAO itemDAO;
 	private Utils utils;
 
+	// Class constructor
 	public ItemController(ItemDAO itemDAO, Utils utils) {
 		super();
 		this.itemDAO = itemDAO;
 		this.utils = utils;
 	}
 
+	/*
+	 * The readAll() method retrieves a list of items from a data access object
+	 * (itemDAO). It iterates through each item in the list, logging details about
+	 * each item using a logger. The method then returns the list of items.
+	 */
 	@Override
 	public List<Item> readAll() {
 		List<Item> items = itemDAO.readAll();
@@ -31,6 +37,13 @@ public class ItemController implements CrudController<Item> {
 		return items;
 	}
 
+	/*
+	 * This method create() prompts the user to input details for a new item (name,
+	 * price, quantity). It logs each prompt and retrieves the input using utility
+	 * methods. The entered values are used to create an Item object, which is then
+	 * stored using a data access object (itemDAO). Finally, a log message confirms
+	 * the successful creation of the item, and the created Item is returned.
+	 */
 	@Override
 	public Item create() {
 		LOGGER.info("Please enter an item name");
@@ -44,6 +57,14 @@ public class ItemController implements CrudController<Item> {
 		return item;
 	}
 
+	/*
+	 * The `update()` method prompts the user to enter an item ID for updating. It
+	 * retrieves the current item with the given ID, logs its details, and then
+	 * prompts the user to enter new information (name, price, quantity). The
+	 * entered details are used to create an updated `Item`, which is then stored by
+	 * calling the `update` method on a data access object (`itemDAO`). The method
+	 * logs a confirmation message and returns the updated `Item`.
+	 */
 	@Override
 	public Item update() {
 		Long id = null;
@@ -65,6 +86,12 @@ public class ItemController implements CrudController<Item> {
 		return item;
 	}
 
+	/*
+	 * The delete() method displays a list of all items, prompts the user to enter
+	 * the ID of the item they want to delete, and attempts to delete it using a
+	 * data access object (itemDAO). The method returns a result code indicating the
+	 * success or failure of the deletion operation.
+	 */
 	@Override
 	public int delete() {
 		for (Item item : readAll()) {
